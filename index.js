@@ -19,20 +19,20 @@ console.log(hTeamName[0]["Win conditions"]);
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
 function getFinals(fifaData) {
-    let forEached = fifaData.filter(element => element.Stage === "Finals");
+    let forEached = fifaData.filter(element => element.Stage === "Final");
         return forEached;
 }
 console.log(getFinals(fifaData))
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
-
-    /* code here */
-
+function getYears(cb) {
+    let yearArray = cb.map(year => year["Year"]);
+    return yearArray;
 };
 
-getYears();
+console.log(getYears(getFinals(fifaData)));
+
 
 /* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */ 
 
